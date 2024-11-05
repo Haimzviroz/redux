@@ -3,8 +3,6 @@ import { RootState } from "../store/store";
 import { markCompleted } from "../store/features/todoSlice";
 import styles from "./TodoList.module.css";
 
-import React from "react";
-
 const TodoList = () => {
   const todos = useSelector((state: RootState) => state.todos.tasks);
   const dispatch = useDispatch();
@@ -23,6 +21,7 @@ const TodoList = () => {
           </li>
         ))}
       </ul>
+      <h3> Total missions was completed{todos.reduce((a, b) => a + (b.completed ? 1 : 0), 0)}</h3>
     </div>
   );
 };
